@@ -1,38 +1,35 @@
 void main() {
-  var e = Employee(name: 'Nguyen Van A', hour: 40, rate: 500000);
-  print(e.gross());
-  print(e.net());
+ var product = Product(name: 'Mi hao', price: 5000, quality: 10);
+  product.printBill();
 }
 
-class Employee {
+class Product {
   final String name;
-  final double hour;
-  final double rate;
-  Employee({required this.name, required this.hour, required this.rate});
-  double gross() {
-    final salary = hour * rate;
-    if (this.hour > 40) {
-      final bonus = salary * 0.2;
-      return salary + bonus;
+  final double quality;
+  final double price;
+  Product({required this.name, required this.price, required this.quality});
+  double total() {
+    return quality * price;
+  }
+  double discount() {
+    if (total() >= 1000000) {
+      return total() * 0.1;
     }
-    return salary;
+    else if (total() >= 500000) {
+      return total() * 0.05;
+    }
+    return 0;
+  }
+  double finalTotal() {
+    return total() - ((total() - discount()) * 0.08);
   }
 
-  double net() {
-    final grossSalary = gross();
-    if (grossSalary > 10000000) {
-      final tax = (grossSalary * 0.1);
-      print(tax);
-      return grossSalary - tax;
-    }
-    else if (grossSalary >= 7000000) {
-      final tax = (grossSalary * 0.05);
-      print(tax);
-      return grossSalary - tax;
-    }
-    else {
-      return grossSalary;
-    }
+  void printBill() {
+    print('San pham: $name');
+    print('So luong: $quality');
+    print('Gia: $price');
+    print('Tong: ${total()}');
+    print('Giam gia: ${discount()}');
+    print('Tong cuoi cung: ${finalTotal()}');
   }
 }
-
