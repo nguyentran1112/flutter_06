@@ -12,8 +12,20 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Login'), centerTitle: true),
-      body: SafeArea(
-        child: Center(
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 4),
+          width: 80,
+          height: 250,
+          decoration: BoxDecoration(
+            color: Colors.blueAccent,
+            borderRadius: BorderRadius.circular(8.0),
+            border: Border.all(
+              color: Colors.black,
+              style: BorderStyle.solid,
+              width: 10,
+            ),
+          ),
           child: MyWidget(
             myPhoneNumber: '0815222263 Nguyen uwiueiwejwejwejeewee',
           ),
