@@ -14,20 +14,28 @@ class MainApp extends StatelessWidget {
       appBar: AppBar(title: Text('Login'), centerTitle: true),
       body: Center(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 4),
-          width: 80,
+          width: 250,
           height: 250,
           decoration: BoxDecoration(
+            shape: BoxShape.circle,
             color: Colors.blueAccent,
-            borderRadius: BorderRadius.circular(8.0),
-            border: Border.all(
-              color: Colors.black,
-              style: BorderStyle.solid,
-              width: 10,
-            ),
           ),
-          child: MyWidget(
-            myPhoneNumber: '0815222263 Nguyen uwiueiwejwejwejeewee',
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(190.0),
+            child: Image.asset(
+              height: 200,
+              width: 200,
+              fit: BoxFit.cover,
+              './assets/images/8_3_cover_mail.webp',
+              errorBuilder: (context, trace, error) {
+                return Center(
+                  child: Text(
+                    'Hinh anh bi loi',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
