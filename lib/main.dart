@@ -13,28 +13,55 @@ class MainApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Login'), centerTitle: true),
       body: Center(
-        child: Container(
-          width: 250,
-          height: 250,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.blueAccent,
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(190.0),
-            child: Image.asset(
-              height: 200,
-              width: 200,
-              fit: BoxFit.cover,
-              './assets/images/8_3_cover_mail.webp',
-              errorBuilder: (context, trace, error) {
-                return Center(
-                  child: Text(
-                    'Hinh anh bi loi',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                );
-              },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            width: 200,
+            child: Card(
+              color: Colors.amber,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blueAccent,
+                      ),
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ienSG-CR_Y-lpTEnCmlTTKFGI6rTSCs03G-kb3mV6w&s=10',
+                        ),
+                        child: Text('CN'),
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    Text(
+                      'Nguyen Van A',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      'A standard Job Description (JD) for a Flutter Developer',
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.check_circle, color: Colors.green),
+                        SizedBox(width: 6),
+                        Text('Online', style: TextStyle(color: Colors.green)),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
