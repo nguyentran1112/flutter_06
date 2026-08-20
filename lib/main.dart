@@ -16,48 +16,71 @@ class MainApp extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-            width: 200,
+            width: 500,
+            height: 300,
             child: Card(
               color: Colors.amber,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                child: Row(
                   children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.blueAccent,
-                      ),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ienSG-CR_Y-lpTEnCmlTTKFGI6rTSCs03G-kb3mV6w&s=10',
-                        ),
-                        child: Text('CN'),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Banh kem',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(height: 12),
+                          Text(
+                            'Banh kem la mon an rat ngon. Duoc moi nguoi dung trong nhung dip quan trong',
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.star),
+                                  Icon(Icons.star),
+                                  Icon(Icons.star),
+                                  Icon(Icons.star),
+                                  Icon(Icons.star),
+                                ],
+                              ),
+                              Text('137 Reviews'),
+                            ],
+                          ),
+                          SizedBox(height: 16),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              _buildItem(
+                                name: 'Tu lanh',
+                                desc: '35M',
+                                icon: Icons.fax,
+                              ),
+                              _buildItem(
+                                name: 'TV',
+                                desc: '3M',
+                                icon: Icons.tablet_android,
+                              ),
+                              _buildItem(
+                                name: 'tiktok',
+                                desc: '3M',
+                                icon: Icons.tiktok,
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 24),
-                    Text(
-                      'Nguyen Van A',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      'A standard Job Description (JD) for a Flutter Developer',
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.check_circle, color: Colors.green),
-                        SizedBox(width: 6),
-                        Text('Online', style: TextStyle(color: Colors.green)),
-                      ],
+
+                    Image.network(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ienSG-CR_Y-lpTEnCmlTTKFGI6rTSCs03G-kb3mV6w&s=10',
                     ),
                   ],
                 ),
@@ -68,6 +91,16 @@ class MainApp extends StatelessWidget {
       ),
       bottomNavigationBar: Text('Bottom Nav'),
       floatingActionButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+    );
+  }
+
+  Widget _buildItem({
+    required String name,
+    required String desc,
+    required IconData icon,
+  }) {
+    return Column(
+      children: [Icon(icon), Text(name), SizedBox(height: 10), Text(desc)],
     );
   }
 }
