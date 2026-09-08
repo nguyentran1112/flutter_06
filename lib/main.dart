@@ -27,34 +27,174 @@ class MainApp extends StatelessWidget {
       },
     ];
     return Scaffold(
-      appBar: AppBar(title: Text('Login'), centerTitle: true),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListView.separated(
-            itemCount: users.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            title: Text('CustomView'),
+            backgroundColor: Colors.green,
+            floating: true,
+            toolbarHeight: 46,
+            expandedHeight: 64,
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 120,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.network(
+                          fit: BoxFit.cover,
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        child: Text(
+                          'Nguyen',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      fit: BoxFit.cover,
+                      width: 80,
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      fit: BoxFit.cover,
+                      width: 80,
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      fit: BoxFit.cover,
+                      width: 80,
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text('Friends Online'),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              ListTile(
                 leading: CircleAvatar(
                   backgroundImage: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ienSG-CR_Y-lpTEnCmlTTKFGI6rTSCs03G-kb3mV6w&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
                   ),
                 ),
-                title: Text(users[index]['name']),
-                subtitle: Text(
-                  '${users[index]['email']} | ${users[index]['phoneNumber']}',
+                title: Text('Nguyen'),
+                subtitle: Text('2001'),
+                trailing: Icon(Icons.people),
+              ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                  ),
                 ),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print(index.toString());
-                },
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 6);
-            },
+                title: Text('Nguyen'),
+                subtitle: Text('2001'),
+              ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                  ),
+                ),
+                title: Text('Nguyen'),
+                subtitle: Text('2001'),
+              ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                  ),
+                ),
+                title: Text('Nguyen'),
+                subtitle: Text('2001'),
+              ),
+            ]),
           ),
-        ),
+          SliverGrid(
+            delegate: SliverChildListDelegate([
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+              SizedBox(width: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  width: 80,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILQO2_C3m2tF0Y7oy-t3hHRRjw8-arIazjuwOlCWx5w&s',
+                ),
+              ),
+            ]),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: Text('Bottom Nav'),
       floatingActionButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
